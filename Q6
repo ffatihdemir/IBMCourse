@@ -1,0 +1,13 @@
+import yfinance as yf
+import matplotlib.pyplot as plt
+def make_graph(data, title):
+    plt.figure(figsize=(10, 6))
+    plt.plot(data['Date'], data['Close'])
+    plt.xlabel('Date')
+    plt.ylabel('Price (USD)')
+    plt.title(title)
+    plt.grid(True)
+    plt.show()
+gme_data = yf.download("GME", start="2023-01-01", end="2023-05-16")
+gme_data = gme_data.reset_index()
+make_graph(gme_data, 'GameStop Stock Data')
