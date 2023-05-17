@@ -1,0 +1,5 @@
+import yfinance as yf
+gme_data = yf.download("GME", start="2023-01-01", end="2023-05-16")
+gme_data = gme_data.reset_index()
+gme_data.to_csv("gme_stock_data.csv", index=False)
+print(gme_data.head())
